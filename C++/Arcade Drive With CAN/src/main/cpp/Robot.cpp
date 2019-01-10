@@ -6,10 +6,8 @@
 /*----------------------------------------------------------------------------*/
 
 #include <frc/Joystick.h>
-#include <frc/PWMVictorSPX.h>
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
-
 #include "rev/CANSparkMax.h"
 
 class Robot : public frc::TimedRobot {
@@ -40,6 +38,7 @@ class Robot : public frc::TimedRobot {
    * sent to them will automatically be copied by the follower motors
    */
   frc::DifferentialDrive m_robotDrive{m_leftLeadMotor, m_rightLeadMotor};
+
   frc::Joystick m_stick{0};
   
  public:
