@@ -10,6 +10,7 @@
 #include <frc/smartdashboard/smartdashboard.h>
 #include <frc/smartdashboard/SendableChooser.h>
 #include "rev/CANSparkMax.h"
+#include <iostream>
 
 class Robot : public frc::TimedRobot {
   // initialize SPARK MAX with CAN ID
@@ -53,18 +54,34 @@ class Robot : public frc::TimedRobot {
      * by calling EnableLimitSwitch(false) on a CANDigitalInput object
      * 
      * Limit switches can be reenabled by calling EnableLimitSwitch(true)
+     * 
+     * The IsLimitSwitchEnabled() method can be used to check if the limit switch is enabled
      */
     if(m_enableChooserForward.GetSelected() == kEnable) {
-      m_forwardLimit.EnableLimitSwitch(true);
+      if(m_forwardLimit.IsLimitSwitchEnabled() == false) {
+        m_forwardLimit.EnableLimitSwitch(true);
+      }
     } else {
-      m_forwardLimit.EnableLimitSwitch(false);
+      if(m_forwardLimit.IsLimitSwitchEnabled() == true) {
+        m_forwardLimit.EnableLimitSwitch(false);
+      }
     }
 
     if(m_enableChooserReverse.GetSelected() == kEnable) {
-      m_reverseLimit.EnableLimitSwitch(true);
+      if(m_reverseLimit.IsLimitSwitchEnabled() == false) {
+        m_reverseLimit.EnableLimitSwitch(true);
+      }
     } else {
-      m_reverseLimit.EnableLimitSwitch(false);
+      if(m_reverseLimit.IsLimitSwitchEnabled() == true) {
+        m_reverseLimit.EnableLimitSwitch(false);
+      }
     }
+
+    m_motor.ClearFaults();
+    frc::SmartDashboard::PutBoolean("Forward Limited", m_motor.GetFault(rev::CANSparkMax::FaultID::kHardLimitFwd));
+    frc::SmartDashboard::PutBoolean("Reverse Limited", m_motor.GetFault(rev::CANSparkMax::FaultID::kHardLimitRev));
+    frc::SmartDashboard::PutNumber("Faults", m_motor.GetFaults());
+    frc::SmartDashboard::PutNumber("Sticky", m_motor.GetStickyFaults());
   }
 };
 
