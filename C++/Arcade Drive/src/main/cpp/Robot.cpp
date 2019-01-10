@@ -8,18 +8,19 @@
 #include <frc/Joystick.h>
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
-
 #include "rev/SparkMax.h"
 
-/**
- * This is a demo program showing the use of the DifferentialDrive class.
- * Runs the motors with arcade steering.
- */
 class Robot : public frc::TimedRobot {
-  // initialize left motor to PWM 0
-  rev::SparkMax m_leftMotor{0};
-  // initialize right motor to PWM 1
-  rev::SparkMax m_rightMotor{1};
+  /**
+   * In PWM mode, SPARK MAX controllers are intialized by creating a
+   * SparkMax object and passing the PWM channel as a parameter
+   * 
+   * Change the PWM channels below to match your setup
+   */
+  static const int leftPwmChannel = 0, rightPwmChannel = 1;
+  rev::SparkMax m_leftMotor{leftPwmChannel};
+  rev::SparkMax m_rightMotor{rightPwmChannel};
+
   frc::DifferentialDrive m_robotDrive{m_leftMotor, m_rightMotor};
   frc::Joystick m_stick{0};
 
