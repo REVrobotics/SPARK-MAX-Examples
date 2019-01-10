@@ -11,7 +11,7 @@
 #include "rev/CANSparkMax.h"
 
 class Robot : public frc::TimedRobot {
-  // initialize motor, pid controller and encoder
+  // initialize motor
   static const int deviceID = 1;
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
 

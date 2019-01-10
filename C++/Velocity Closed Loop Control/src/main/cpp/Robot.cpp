@@ -10,22 +10,28 @@
 #include <frc/SmartDashboard/SmartDashboard.h>
 #include "rev/CANSparkMax.h"
 
-constexpr double MaxRPM = 5700;
-
-/**
- * This is a demo program showing the use of the DifferentialDrive class.
- * Runs the motors with arcade steering.
- */
 class Robot : public frc::TimedRobot {
-  // initialize motor, pid controller and encoder
-  rev::CANSparkMax m_motor{1, rev::CANSparkMax::MotorType::kBrushless};
+  // initialize motor
+  static const int deviceID = 1;
+  rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
+
+  /**
+   * In order to use PID functionality for a controller, a CANPIDController object
+   * is constructed by calling the GetPIDController() method on an existing
+   * CANSparkMax object
+   */
   rev::CANPIDController m_pidController = m_motor.GetPIDController();
+
+  // Encoder object created to display velocity values
   rev::CANEncoder m_encoder = m_motor.GetEncoder();
 
   frc::Joystick m_stick{0};
 
   // default PID coefficients
   double kP = 5e-5, kI = 1e-6, kD = 0, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
+
+  // motor max RPM
+  const double MaxRPM = 5700;
 
  public:
   void RobotInit() {
@@ -37,7 +43,7 @@ class Robot : public frc::TimedRobot {
     m_pidController.SetFF(kFF);
     m_pidController.SetOutputRange(kMinOutput, kMaxOutput);
 
-    // display PID coefficients on the SmartDashboard
+    // display PID coefficients on SmartDashboard
     frc::SmartDashboard::PutNumber("P Gain", kP);
     frc::SmartDashboard::PutNumber("I Gain", kI);
     frc::SmartDashboard::PutNumber("D Gain", kD);
@@ -56,7 +62,7 @@ class Robot : public frc::TimedRobot {
     double max = frc::SmartDashboard::GetNumber("Max Output", 0);
     double min = frc::SmartDashboard::GetNumber("Min Output", 0);
 
-    // if PID coefficients have changed, writ new values to controller
+    // if PID coefficients on SmartDashboard have changed, write new values to controller
     if((p != kP)) { m_pidController.SetP(p); kP = p; }
     if((i != kI)) { m_pidController.SetI(i); kI = i; }
     if((d != kD)) { m_pidController.SetD(d); kD = d; }
@@ -67,14 +73,27 @@ class Robot : public frc::TimedRobot {
       kMinOutput = min; kMaxOutput = max; 
     }
 
-    // read setpoint from stick
+    // read setpoint from joystick and scale by max rpm
     double SetPoint = MaxRPM*m_stick.GetY();
 
-    // set velocity in PID controller
+    /**
+     * PIDController objects are commanded to a set point using the 
+     * SetReference() method.
+     * 
+     * The first parameter is the value of the set point, whose units vary
+     * depending on the control type set in the second parameter.
+     * 
+     * The second parameter is the control type can be set to one of four 
+     * parameters:
+     *  rev::ControlType::kDutyCycle
+     *  rev::ControlType::kPosition
+     *  rev::ControlType::kVelocity
+     *  rev::ControlType::kVoltage
+     */
     m_pidController.SetReference(SetPoint, rev::ControlType::kVelocity);
     
     frc::SmartDashboard::PutNumber("SetPoint", SetPoint);
-    frc::SmartDashboard::PutNumber("PV", m_encoder.GetVelocity());
+    frc::SmartDashboard::PutNumber("ProcessVariable", m_encoder.GetVelocity());
   }
 };
 
