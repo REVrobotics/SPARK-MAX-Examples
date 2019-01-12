@@ -1,0 +1,103 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              3,
+              3
+            ],
+            "content": {
+              "_type": "Graph",
+              "_source0": "network_table:///SmartDashboard/ProcessVariable",
+              "_source1": "network_table:///SmartDashboard/SetPoint",
+              "_title": "ProcessVariable",
+              "Graph/Visible time": 30.0,
+              "Visible data/SmartDashboard/ProcessVariable": true,
+              "Visible data/SmartDashboard/SetPoint": true
+            }
+          },
+          "3,0": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "PID Control",
+              "Layout/Label position": "LEFT",
+              "_children": [
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/P Gain",
+                  "_title": "P Gain"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/I Gain",
+                  "_title": "I Gain"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/D Gain",
+                  "_title": "D Gain"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/I Zone",
+                  "_title": "I Zone"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Feed Forward",
+                  "_title": "Feed Forward"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Min Output",
+                  "_title": "Min Output"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Max Output",
+                  "_title": "Max Output"
+                },
+                {
+                  "_type": "Text View",
+                  "_source0": "network_table:///SmartDashboard/Set Rotations",
+                  "_title": "Set Rotations"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "LiveWindow",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "LiveWindow/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {}
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -1640.0,
+    "y": 54.0,
+    "width": 1540.0,
+    "height": 832.0
+  }
+}
