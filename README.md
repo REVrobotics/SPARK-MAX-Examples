@@ -6,7 +6,10 @@
 
 <a name="installjc"></a>
 ## Installing libraries for Java/C++
-Download the SPARK-MAX-roboRIO-SDK from RevRobotics <a href="">here</a>.(TODO: ADD LINK)
+Download the SPARK-MAX-roboRIO-SDK from RevRobotics.
+* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-roboRIO-SDK-1.0.26.zip">Java API</a>
+* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-roboRIO-SDK-1.0.26.zip">C++ API</a>
+
 Extract the zipped archive to a location where you can find it. Within the extracted folder, there will be two folders title "maven" and "vendordeps".
 
 ![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Extracted%20Folder.PNG "SPARK-MAX-roboRIO-SDK")
