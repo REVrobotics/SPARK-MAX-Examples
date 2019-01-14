@@ -22,6 +22,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  */
 public class Robot extends TimedRobot {
   private Joystick m_stick;
+  private static final int deviceID = 1;
   private CANSparkMax m_motor;
 
   @Override
@@ -30,7 +31,6 @@ public class Robot extends TimedRobot {
      * deviceID is the CAN ID of the SPARK MAX you are using.
      * Change to match your setup
      */
-    int deviceID = 1;
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
 
     /**

@@ -18,6 +18,8 @@ public class Robot extends TimedRobot {
   private DifferentialDrive m_myRobot;
   private Joystick m_leftStick;
   private Joystick m_rightStick;
+  private static final int leftDeviceID = 1; 
+  private static final int rightDeviceID = 2;
   private CANSparkMax m_leftMotor;
   private CANSparkMax m_rightMotor;
 
@@ -36,8 +38,6 @@ public class Robot extends TimedRobot {
    * The example below initializes four brushless motors with CAN IDs 1 and 2. Change
    * these parameters to match your setup
    */
-    int leftDeviceID = 1; 
-    int rightDeviceID = 2;
     m_leftMotor = new CANSparkMax(leftDeviceID, MotorType.kBrushless);
     m_rightMotor = new CANSparkMax(rightDeviceID, MotorType.kBrushless);
 

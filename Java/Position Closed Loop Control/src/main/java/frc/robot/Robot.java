@@ -7,7 +7,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -22,7 +21,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  * it contains the code necessary to operate a robot with tank drive.
  */
 public class Robot extends TimedRobot {
-  private Joystick m_stick;
+  private static final int deviceID = 1;
   private CANSparkMax m_motor;
   private CANPIDController m_pidController;
   private CANEncoder m_encoder;
@@ -30,10 +29,7 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotInit() {
-    m_stick = new Joystick(0);
-
     // initialize motor
-    int deviceID = 1;
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
 
     /**

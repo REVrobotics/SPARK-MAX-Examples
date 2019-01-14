@@ -22,6 +22,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
  */
 public class Robot extends TimedRobot {
   private Joystick m_stick;
+  private static final int deviceID = 1;
   private CANSparkMax m_motor;
   private CANDigitalInput m_forwardLimit;
   private CANDigitalInput m_reverseLimit;
@@ -32,7 +33,6 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
-    int deviceID = 1;
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
 
     /**
