@@ -21,7 +21,7 @@ class Robot : public frc::TimedRobot {
    *  rev::CANSparkMax::MotorType::kBrushless
    *  rev::CANSparkMax::MotorType::kBrushed
    * 
-   * The example below initialized four brushless motors with CAN IDs 1, 2, 3 and 4. Change
+   * The example below initializes four brushless motors with CAN IDs 1, 2, 3 and 4. Change
    * these parameters to match your setup
    */
   static const int leftLeadDeviceID = 1, rightLeadDeviceID = 2, leftFollowDeviceID = 3, rightFollowDeviceID = 4;
