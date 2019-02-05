@@ -56,6 +56,13 @@ class Robot : public frc::TimedRobot {
 
  public:
   void RobotInit() {
+    /**
+     * The RestoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_motor.RestoreFactoryDefaults();
+
     // set PID coefficients
     m_pidController.SetP(kP);
     m_pidController.SetI(kI);
@@ -67,13 +74,13 @@ class Robot : public frc::TimedRobot {
     /**
      * Smart Motion coefficients are set on a CANPIDController object
      * 
-     * - setSmartMotionMaxVelocity() will limit the velocity in RPM of
+     * - SetSmartMotionMaxVelocity() will limit the velocity in RPM of
      * the pid controller in Smart Motion mode
-     * - setSmartMotionMinOutputVelocity() will put a lower bound in
+     * - SetSmartMotionMinOutputVelocity() will put a lower bound in
      * RPM of the pid controller in Smart Motion mode
-     * - setSmartMotionMaxAccel() will limit the acceleration in RPM^2
+     * - SetSmartMotionMaxAccel() will limit the acceleration in RPM^2
      * of the pid controller in Smart Motion mode
-     * - setSmartMotionAllowedClosedLoopError() will set the max allowed
+     * - SetSmartMotionAllowedClosedLoopError() will set the max allowed
      * error for the pid controller in Smart Motion mode
      */
     m_pidController.SetSmartMotionMaxVelocity(kMaxVel);

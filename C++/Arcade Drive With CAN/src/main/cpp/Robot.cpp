@@ -24,7 +24,7 @@ class Robot : public frc::TimedRobot {
    * The example below initializes four brushless motors with CAN IDs 1, 2, 3 and 4. Change
    * these parameters to match your setup
    */
-  static const int leftLeadDeviceID = 1, rightLeadDeviceID = 2, leftFollowDeviceID = 3, rightFollowDeviceID = 4;
+  static const int leftLeadDeviceID = 1, leftFollowDeviceID = 2, rightLeadDeviceID = 3, rightFollowDeviceID = 4;
   rev::CANSparkMax m_leftLeadMotor{leftLeadDeviceID, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANSparkMax m_rightLeadMotor{rightLeadDeviceID, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANSparkMax m_leftFollowMotor{leftFollowDeviceID, rev::CANSparkMax::MotorType::kBrushless};
@@ -43,6 +43,16 @@ class Robot : public frc::TimedRobot {
   
  public:
   void RobotInit() {
+    /**
+     * The RestoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_leftLeadMotor.RestoreFactoryDefaults();
+    m_rightLeadMotor.RestoreFactoryDefaults();
+    m_leftFollowMotor.RestoreFactoryDefaults();
+    m_rightFollowMotor.RestoreFactoryDefaults();
+    
     /**
      * In CAN mode, one SPARK MAX can be configured to follow another. This is done by calling
      * the Follow() method on the SPARK MAX you want to configure as a follower, and by passing

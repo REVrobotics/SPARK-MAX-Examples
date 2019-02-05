@@ -23,6 +23,13 @@ class Robot : public frc::TimedRobot {
  public:
   void RobotInit() {
     /**
+     * The RestoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_motor.RestoreFactoryDefaults();
+
+    /**
      * Parameters can be set by calling the appropriate Set method on the CANSparkMax object
      * whose properties you want to change
      * 
