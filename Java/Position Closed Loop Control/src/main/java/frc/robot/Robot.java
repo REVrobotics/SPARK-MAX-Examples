@@ -16,10 +16,6 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
-/**
- * This is a demo program showing the use of the RobotDrive class, specifically
- * it contains the code necessary to operate a robot with tank drive.
- */
 public class Robot extends TimedRobot {
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
@@ -31,6 +27,13 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // initialize motor
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
+
+    /**
+     * The restoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_motor.restoreFactoryDefaults();
 
     /**
      * In order to use PID functionality for a controller, a CANPIDController object

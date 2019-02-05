@@ -34,6 +34,13 @@ public class Robot extends TimedRobot {
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
 
     /**
+     * The restoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_motor.restoreFactoryDefaults();
+
+    /**
      * Parameters can be set by calling the appropriate Set method on the CANSparkMax object
      * whose properties you want to change
      * 
@@ -58,12 +65,12 @@ public class Robot extends TimedRobot {
     }
 
     // Set ramp rate to 0
-    if(m_motor.setRampRate(0) != CANError.kOK) {
+    if(m_motor.setOpenLoopRampRate(0) != CANError.kOK) {
       SmartDashboard.putString("Ramp Rate", "Error");
     }
 
     // read back ramp rate value
-    SmartDashboard.putNumber("Ramp Rate", m_motor.getRampRate());
+    SmartDashboard.putNumber("Ramp Rate", m_motor.getOpenLoopRampRate());
 
     m_stick = new Joystick(0);
   }

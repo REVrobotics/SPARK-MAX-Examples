@@ -41,6 +41,14 @@ public class Robot extends TimedRobot {
     m_leftMotor = new CANSparkMax(leftDeviceID, MotorType.kBrushless);
     m_rightMotor = new CANSparkMax(rightDeviceID, MotorType.kBrushless);
 
+    /**
+     * The RestoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_leftMotor.restoreFactoryDefaults();
+    m_rightMotor.restoreFactoryDefaults();
+
     m_myRobot = new DifferentialDrive(m_leftMotor, m_rightMotor);
 
     m_leftStick = new Joystick(0);

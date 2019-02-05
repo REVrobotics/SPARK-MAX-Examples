@@ -37,6 +37,13 @@ public class Robot extends TimedRobot {
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
 
     /**
+     * The RestoreFactoryDefaults method can be used to reset the configuration parameters
+     * in the SPARK MAX to their factory default state. If no argument is passed, these
+     * parameters will not persist between power cycles
+     */
+    m_motor.restoreFactoryDefaults();
+
+    /**
      * In order to use PID functionality for a controller, a CANPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
