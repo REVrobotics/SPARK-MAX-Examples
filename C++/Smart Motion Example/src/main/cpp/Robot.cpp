@@ -139,7 +139,7 @@ class Robot : public frc::TimedRobot {
     if((ff != kFF)) { m_pidController.SetFF(ff); kFF = ff; }
     if((max != kMaxOutput) || (min != kMinOutput)) { m_pidController.SetOutputRange(min, max); kMinOutput = min; kMaxOutput = max; }
     if((maxV != kMaxVel)) { m_pidController.SetSmartMotionMaxVelocity(maxV); kMaxVel = maxV; }
-    if((minV != kMinVel)) { m_pidController.SetSmartMotionMaxVelocity(minV); kMinVel = minV; }
+    if((minV != kMinVel)) { m_pidController.SetSmartMotionMinOutputVelocity(minV); kMinVel = minV; }
     if((maxA != kMaxAcc)) { m_pidController.SetSmartMotionMaxAccel(maxA); kMaxAcc = maxA; }
     if((allE != kAllErr)) { m_pidController.SetSmartMotionAllowedClosedLoopError(allE); allE = kAllErr; }
 
