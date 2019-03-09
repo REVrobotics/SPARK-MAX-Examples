@@ -82,6 +82,6 @@ public class Robot extends TimedRobot {
      * have a switch connected. get() will return false when the switch is released.
      */
     SmartDashboard.putBoolean("Forward Limit Switch", m_forwardLimit.get());
-    SmartDashboard.putBoolean("Reverse Limit Switch", m_forwardLimit.get());
+    SmartDashboard.putBoolean("Reverse Limit Switch", m_reverseLimit.get());
   }
 }
