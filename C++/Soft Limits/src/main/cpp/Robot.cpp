@@ -42,13 +42,13 @@ class Robot : public frc::TimedRobot {
     m_motor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 15);
     m_motor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, 0);
     
-    frc::SmartDashboard::PutBoolean("Forward Smart Limit Enabled", 
+    frc::SmartDashboard::PutBoolean("Forward Soft Limit Enabled", 
                                     m_motor.IsSoftLimitEnabled(rev::CANSparkMax::SoftLimitDirection::kForward));
-    frc::SmartDashboard::PutBoolean("Reveres Smart Limit Enabled", 
+    frc::SmartDashboard::PutBoolean("Reveres Soft Limit Enabled", 
                                     m_motor.IsSoftLimitEnabled(rev::CANSparkMax::SoftLimitDirection::kReverse));
-    frc::SmartDashboard::PutNumber("Forward Smart Limit", 
+    frc::SmartDashboard::PutNumber("Forward Soft Limit", 
                                     m_motor.GetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward));
-    frc::SmartDashboard::PutNumber("Reveres Smart Limit", 
+    frc::SmartDashboard::PutNumber("Reveres Soft Limit", 
                                     m_motor.GetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse));
   }
 
@@ -57,15 +57,15 @@ class Robot : public frc::TimedRobot {
     
     // Enable and disable the smart limits based on values read from the SmartDashboard
     m_motor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 
-                         frc::SmartDashboard::GetBoolean("Forward Smart Limit Enabled", true));
+                         frc::SmartDashboard::GetBoolean("Forward Soft Limit Enabled", true));
     m_motor.EnableSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, 
-                         frc::SmartDashboard::GetBoolean("Reverse Smart Limit Enabled", true));
+                         frc::SmartDashboard::GetBoolean("Reverse Soft Limit Enabled", true));
 
     // Change the value of the limits based on values read from the SmartDashboard
     m_motor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward, 
-                         frc::SmartDashboard::GetNumber("Forward Smart Limit", 15));
+                         frc::SmartDashboard::GetNumber("Forward SmaSoftrt Limit", 15));
     m_motor.SetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse, 
-                         frc::SmartDashboard::GetNumber("Reverse Smart Limit", 0));
+                         frc::SmartDashboard::GetNumber("Reverse Soft Limit", 0));
   }
 };
 
