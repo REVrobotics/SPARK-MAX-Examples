@@ -19,6 +19,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.ControlType;
 
 public class Robot extends TimedRobot {
+  
+
   private Joystick m_stick;
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
