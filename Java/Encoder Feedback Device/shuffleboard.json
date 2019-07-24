@@ -1,0 +1,72 @@
+{
+  "tabPane": [
+    {
+      "title": "SmartDashboard",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "SmartDashboard/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {
+          "0,0": {
+            "size": [
+              2,
+              3
+            ],
+            "content": {
+              "_type": "List Layout",
+              "_title": "Limit Switch",
+              "Layout/Label position": "BOTTOM",
+              "_children": [
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///SmartDashboard/Forward Limit Enabled",
+                  "_title": "Forward Limit Enabled"
+                },
+                {
+                  "_type": "Toggle Switch",
+                  "_source0": "network_table:///SmartDashboard/Reverse Limit Enabled",
+                  "_title": "Reverse Limit Enabled"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Forward Limit Switch",
+                  "_title": "Forward Limit Switch",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                },
+                {
+                  "_type": "Boolean Box",
+                  "_source0": "network_table:///SmartDashboard/Reverse Limit Switch",
+                  "_title": "Reverse Limit Switch",
+                  "Colors/Color when true": "#7CFC00FF",
+                  "Colors/Color when false": "#8B0000FF"
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    {
+      "title": "LiveWindow",
+      "autoPopulate": true,
+      "autoPopulatePrefix": "LiveWindow/",
+      "widgetPane": {
+        "gridSize": 128.0,
+        "showGrid": true,
+        "hgap": 16.0,
+        "vgap": 16.0,
+        "tiles": {}
+      }
+    }
+  ],
+  "windowGeometry": {
+    "x": -1640.0,
+    "y": 54.0,
+    "width": 1540.0,
+    "height": 832.0
+  }
+}
