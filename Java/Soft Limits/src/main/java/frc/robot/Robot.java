@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
                               m_motor.isSoftLimitEnabled(CANSparkMax.SoftLimitDirection.kReverse));                          
     SmartDashboard.putNumber("Forward Soft Limit",
                               m_motor.getSoftLimit(CANSparkMax.SoftLimitDirection.kForward));
-    SmartDashboard.putNumber("Forward Soft Limit",
+    SmartDashboard.putNumber("Reverse Soft Limit",
                               m_motor.getSoftLimit(CANSparkMax.SoftLimitDirection.kReverse));
 
     m_stick = new Joystick(0);
