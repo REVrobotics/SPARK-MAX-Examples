@@ -12,7 +12,7 @@
 
 class Robot : public frc::TimedRobot {
   // initialize motor
-  static const int deviceID = 1;
+  static const int deviceID = 9;
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
 
   /**
@@ -28,7 +28,7 @@ class Robot : public frc::TimedRobot {
   frc::Joystick m_stick{0};
 
   // default PID coefficients
-  double kP = 5e-5, kI = 1e-6, kD = 0, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
+  double kP = 6e-5, kI = 1e-6, kD = 0, kIz = 0, kFF = 0.000015, kMaxOutput = 1.0, kMinOutput = -1.0;
 
   // motor max RPM
   const double MaxRPM = 5700;
@@ -81,8 +81,19 @@ class Robot : public frc::TimedRobot {
     }
 
     // read setpoint from joystick and scale by max rpm
-    double SetPoint = MaxRPM*m_stick.GetY();
+    double SetPoint = 0.0;// = MaxRPM*m_stick.GetY();
 
+    if (m_stick.GetRawButton(1)) {
+      SetPoint = 100;
+    } else if (m_stick.GetRawButton(2)) {
+      SetPoint = 500;
+    } else if (m_stick.GetRawButton(3)) {
+      SetPoint = 750;
+    } else if (m_stick.GetRawButton(4)) {
+      SetPoint = 2500;
+    } else {
+      SetPoint = 0;
+    }
     /**
      * PIDController objects are commanded to a set point using the 
      * SetReference() method.
@@ -97,10 +108,12 @@ class Robot : public frc::TimedRobot {
      *  rev::ControlType::kVelocity
      *  rev::ControlType::kVoltage
      */
-    m_pidController.SetReference(SetPoint, rev::ControlType::kVelocity);
     
+    m_pidController.SetReference(SetPoint, rev::ControlType::kVelocity);
+
     frc::SmartDashboard::PutNumber("SetPoint", SetPoint);
     frc::SmartDashboard::PutNumber("ProcessVariable", m_encoder.GetVelocity());
+    
   }
 };
 

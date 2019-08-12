@@ -46,7 +46,7 @@
  */
 
 class Robot : public frc::TimedRobot {
-  static const int deviceID = 1;
+  static const int deviceID = 9;
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
   rev::CANPIDController m_pidController = m_motor.GetPIDController();
   rev::CANEncoder m_encoder = m_motor.GetEncoder();
