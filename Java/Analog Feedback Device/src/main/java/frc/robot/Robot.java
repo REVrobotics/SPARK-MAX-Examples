@@ -37,7 +37,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-    m_analogSensor = m_motor.getAnalog();
+    m_analogSensor = m_motor.getAnalog(CANAnalog.AnalogMode.kAbsolute);
     
     m_motor.restoreFactoryDefaults();
 

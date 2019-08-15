@@ -50,7 +50,7 @@ public class Robot extends TimedRobot {
      *  CANError.kError
      *  CANError.kTimeout
      */
-    if(m_motor.setIdleMode(IdleMode.kCoast) != CANError.kOK){
+    if(m_motor.setIdleMode(IdleMode.kCoast) != CANError.kOk){
       SmartDashboard.putString("Idle Mode", "Error");
     }
 
@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
     }
 
     // Set ramp rate to 0
-    if(m_motor.setOpenLoopRampRate(0) != CANError.kOK) {
+    if(m_motor.setOpenLoopRampRate(0) != CANError.kOk) {
       SmartDashboard.putString("Ramp Rate", "Error");
     }
 

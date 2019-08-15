@@ -39,7 +39,7 @@ class Robot : public frc::TimedRobot {
      *  CANError::kError
      *  CANError::kTimeout
      */
-    if(m_motor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast) != rev::CANError::kOK) {
+    if(m_motor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast) != rev::CANError::kOk) {
       frc::SmartDashboard::PutString("Idle Mode", "Error");
     }
 
@@ -54,7 +54,7 @@ class Robot : public frc::TimedRobot {
     }
 
     // Set ramp rate to 0
-    if(m_motor.SetOpenLoopRampRate(0) != rev::CANError::kOK) {
+    if(m_motor.SetOpenLoopRampRate(0) != rev::CANError::kOk) {
       frc::SmartDashboard::PutString("Ramp Rate", "Error");
     }
 
