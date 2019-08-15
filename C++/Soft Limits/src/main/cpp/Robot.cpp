@@ -44,11 +44,11 @@ class Robot : public frc::TimedRobot {
     
     frc::SmartDashboard::PutBoolean("Forward Soft Limit Enabled", 
                                     m_motor.IsSoftLimitEnabled(rev::CANSparkMax::SoftLimitDirection::kForward));
-    frc::SmartDashboard::PutBoolean("Reveres Soft Limit Enabled", 
+    frc::SmartDashboard::PutBoolean("Reverse Soft Limit Enabled",
                                     m_motor.IsSoftLimitEnabled(rev::CANSparkMax::SoftLimitDirection::kReverse));
     frc::SmartDashboard::PutNumber("Forward Soft Limit", 
                                     m_motor.GetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kForward));
-    frc::SmartDashboard::PutNumber("Reveres Soft Limit", 
+    frc::SmartDashboard::PutNumber("Reverse Soft Limit",
                                     m_motor.GetSoftLimit(rev::CANSparkMax::SoftLimitDirection::kReverse));
   }
 
