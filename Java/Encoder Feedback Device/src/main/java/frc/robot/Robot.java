@@ -15,13 +15,13 @@ import com.revrobotics.CANEncoder;
 import com.revrobotics.CANDigitalInput;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.SensorType;
+import com.revrobotics.EncoderType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.ControlType;
 
 public class Robot extends TimedRobot {
   private Joystick m_stick;
-  private static final int deviceID = 1;
+  private static final int deviceID = 0;
   private CANSparkMax m_motor;
   private CANPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
@@ -37,8 +37,8 @@ public class Robot extends TimedRobot {
   @Override
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
-    m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-    m_encoder = m_motor.getEncoder(SensorType.kEncoder, 4096);
+    m_motor = new CANSparkMax(deviceID, MotorType.kBrushed);
+    m_encoder = m_motor.getEncoder(EncoderType.kQuadrature, 4096);
     
     m_motor.restoreFactoryDefaults();
 

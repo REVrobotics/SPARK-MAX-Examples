@@ -15,8 +15,8 @@ class Robot : public frc::TimedRobot {
 
 
   // initialize SPARK MAX with CAN ID
-  static const int deviceID = 1;
-  rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
+  static const int deviceID = 0;
+  rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushed};
 
   /**
    * A CANEncoder object is constructed using the GetEncoder() method on an 
@@ -24,7 +24,7 @@ class Robot : public frc::TimedRobot {
    * or a sensor type and counts per revolution can be passed in to specify
    * a different kind of sensor. Here, it's a quadrature encoder with 4096 CPR.
    */
-  rev::CANEncoder m_encoder = m_motor.GetEncoder(rev::SensorType::kEncoder, 4096);
+  rev::CANEncoder m_encoder = m_motor.GetEncoder(rev::CANEncoder::EncoderType::kQuadrature, 4096);
 
   /**
    * In order to use PID functionality for a controller, a CANPIDController object
