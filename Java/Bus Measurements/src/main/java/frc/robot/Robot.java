@@ -15,19 +15,22 @@ import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
- * This sample program shows how to control a motor using a joystick. In the
- * operator control part of the program, the joystick is read and the value is
- * written to the motor.
- *
- * <p>Joystick analog values range from -1 to 1 and speed controller inputs also
- * range from -1 to 1 making it easy to work together.
+ * This sample program shows how to read basic bus measurements from the SparkMax
  */
 public class Robot extends TimedRobot {
+  /**
+   * Parameters for the SparkMax are defined below. Be sure to change the deviceID
+   * and motor type to match your setup.
+   */
   private static final int deviceID = 1;
   private static final MotorType motorType = MotorType.kBrushless;
-  private static final int kJoystickPort = 0;
-
   private CANSparkMax m_motor;
+
+  /**
+   * A single joystick will be used to control motor outputs when the robot is 
+   * enabled.
+   */
+  private static final int kJoystickPort = 0;
   private Joystick m_joystick;
 
   @Override
@@ -39,11 +42,17 @@ public class Robot extends TimedRobot {
 
   @Override
   public void robotPeriodic() {
+    /**
+     * There are several useful bus measurements you can get from the SparkMax.
+     * This includes bus voltage (V), output current (A), Applied Output 
+     * (duty cycle), and motor temperature (C)
+     */
     double busVoltage = m_motor.getBusVoltage();
     double current = m_motor.getOutputCurrent();
     double appliedOut = m_motor.getAppliedOutput();
     double temperature = m_motor.getMotorTemperature();
 
+    // Open SmartDashboard when your program is running to see the values
     SmartDashboard.putNumber("Bus Voltage", busVoltage);
     SmartDashboard.putNumber("Current", current);
     SmartDashboard.putNumber("Applied Output", appliedOut);
