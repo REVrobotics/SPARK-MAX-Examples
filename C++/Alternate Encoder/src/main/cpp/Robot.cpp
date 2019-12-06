@@ -54,6 +54,11 @@ class Robot : public frc::TimedRobot {
      */
     m_pidController.SetFeedbackDevice(m_alternateEncoder);
 
+    /**
+     * From here on out, code looks exactly like running PID control with the 
+     * built-in NEO encoder, but feedback will come from the alternate encoder
+     */ 
+
     // set PID coefficients
     m_pidController.SetP(kP);
     m_pidController.SetI(kI);
