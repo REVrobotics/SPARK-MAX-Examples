@@ -1,7 +1,7 @@
 {
     "fileName": "REVRobotics.json",
     "name": "REVRobotics",
-    "version": "1.4.1",
+    "version": "1.5.1",
     "uuid": "3f48eb8c-50fe-43a6-9cb7-44c86353c4cb",
     "mavenUrls": [
         "http://www.revrobotics.com/content/sw/max/sdk/maven/"
@@ -11,19 +11,21 @@
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-java",
-            "version": "1.4.1"
+            "version": "1.5.1"
         }
     ],
     "jniDependencies": [
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-driver",
-            "version": "1.4.1",
+            "version": "1.5.1",
             "skipInvalidPlatforms": true,
             "isJar": false,
             "validPlatforms": [
                 "windowsx86-64",
                 "windowsx86",
+                "linuxaarch64bionic",
+                "linuxx86-64",
                 "linuxathena",
                 "linuxraspbian"
             ]
@@ -33,14 +35,16 @@
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-cpp",
-            "version": "1.4.1",
-            "libName": "libSparkMax",
+            "version": "1.5.1",
+            "libName": "SparkMax",
             "headerClassifier": "headers",
             "sharedLibrary": false,
             "skipInvalidPlatforms": true,
             "binaryPlatforms": [
                 "windowsx86-64",
                 "windowsx86",
+                "linuxaarch64bionic",
+                "linuxx86-64",
                 "linuxathena",
                 "linuxraspbian"
             ]
@@ -48,14 +52,16 @@
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-driver",
-            "version": "1.4.1",
-            "libName": "libSparkMaxDriver",
+            "version": "1.5.1",
+            "libName": "SparkMaxDriver",
             "headerClassifier": "headers",
             "sharedLibrary": false,
             "skipInvalidPlatforms": true,
             "binaryPlatforms": [
                 "windowsx86-64",
                 "windowsx86",
+                "linuxaarch64bionic",
+                "linuxx86-64",
                 "linuxathena",
                 "linuxraspbian"
             ]

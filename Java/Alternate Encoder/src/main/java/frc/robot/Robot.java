@@ -27,7 +27,6 @@ public class Robot extends TimedRobot {
   private static final AlternateEncoderType kAltEncType = AlternateEncoderType.kQuadrature;
   private static final int kCPR = 8192;
 
-  private Joystick m_stick;
   private CANSparkMax m_motor;
   private CANPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
@@ -44,10 +43,10 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
     m_motor = new CANSparkMax(kCanID, kMotorType);
-    m_alternateEncoder = m_motor.getAlternateEncoder(kAltEncType, kCPR);
-    
     m_motor.restoreFactoryDefaults();
 
+    m_alternateEncoder = m_motor.getAlternateEncoder(kAltEncType, kCPR);
+    
     /**
      * In order to use PID functionality for a controller, a CANPIDController object
      * is constructed by calling the getPIDController() method on an existing
