@@ -9,14 +9,14 @@
 <a name="installjc"></a>
 ## Installing libraries for Java/C++
 Download the SPARK-MAX-roboRIO-SDK from RevRobotics.
-* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.4.1.zip">Java API</a>
-* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.4.1.zip">C++ API</a>
+* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.5.1.zip">Java API</a>
+* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.5.1.zip">C++ API</a>
 
 Extract the zipped archive to a location where you can find it. Within the extracted folder, there will be two folders title "maven" and "vendordeps".
 
 ![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Extracted%20Folder.PNG "SPARK-MAX-roboRIO-SDK")
 
-Copy and paste these folders into the location <b>C:\Users\Public\frc2019</b>. Go ahead and replace the files in the destination if you are prompted.
+Copy and paste these folders into the location <b>C:\Users\Public\wpilib\2020</b>. Replace the files in the destination if you are prompted.
 
 ![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Copy%20Location.PNG "Copy Location")
 
@@ -43,7 +43,7 @@ By default, the Team Number is set to 0 in the .wpilib/wpilib_preferences.json f
 
 <a name = "installlv"></a>
 ## Installing libraries for LabVIEW
-Download the SPARK MAX LabVIEW API from RevRobotics <a href="http://www.revrobotics.com/content/sw/max/labview/rev-spark-max_1.0.0-26_windows_x64.nipkg">here</a>.
+Download the SPARK MAX LabVIEW API from RevRobotics <a href="http://www.revrobotics.com/content/sw/max/labview/rev-spark-max_1.5.2-0_windows_all.nipkg">here</a>.
 
 Simply run the installer and follow the instructions on screen.
 
