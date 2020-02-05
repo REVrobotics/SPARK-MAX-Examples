@@ -54,11 +54,11 @@ public class Robot extends TimedRobot {
     m_encoder = m_motor.getEncoder();
 
     // PID coefficients
-    kP = 5e-5; 
-    kI = 1e-6;
+    kP = 6e-5; 
+    kI = 0;
     kD = 0; 
     kIz = 0; 
-    kFF = 0; 
+    kFF = 0.000015; 
     kMaxOutput = 1; 
     kMinOutput = -1;
     maxRPM = 5700;
