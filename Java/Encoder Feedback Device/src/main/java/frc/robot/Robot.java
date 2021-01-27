@@ -7,12 +7,10 @@
 
 package frc.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.CANEncoder;
-import com.revrobotics.CANDigitalInput;
 import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.EncoderType;
@@ -20,7 +18,6 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 import com.revrobotics.ControlType;
 
 public class Robot extends TimedRobot {
-  private Joystick m_stick;
   private static final int deviceID = 0;
   private CANSparkMax m_motor;
   private CANPIDController m_pidController;
