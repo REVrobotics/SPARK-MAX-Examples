@@ -1,7 +1,7 @@
 {
     "fileName": "REVRobotics.json",
     "name": "REVRobotics",
-    "version": "1.5.1",
+    "version": "1.5.4",
     "uuid": "3f48eb8c-50fe-43a6-9cb7-44c86353c4cb",
     "mavenUrls": [
         "http://www.revrobotics.com/content/sw/max/sdk/maven/"
@@ -11,14 +11,14 @@
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-java",
-            "version": "1.5.1"
+            "version": "1.5.4"
         }
     ],
     "jniDependencies": [
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-driver",
-            "version": "1.5.1",
+            "version": "1.5.4",
             "skipInvalidPlatforms": true,
             "isJar": false,
             "validPlatforms": [
@@ -27,7 +27,8 @@
                 "linuxaarch64bionic",
                 "linuxx86-64",
                 "linuxathena",
-                "linuxraspbian"
+                "linuxraspbian",
+                "osxx86-64"
             ]
         }
     ],
@@ -35,7 +36,7 @@
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-cpp",
-            "version": "1.5.1",
+            "version": "1.5.4",
             "libName": "SparkMax",
             "headerClassifier": "headers",
             "sharedLibrary": false,
@@ -46,13 +47,14 @@
                 "linuxaarch64bionic",
                 "linuxx86-64",
                 "linuxathena",
-                "linuxraspbian"
+                "linuxraspbian",
+                "osxx86-64"
             ]
         },
         {
             "groupId": "com.revrobotics.frc",
             "artifactId": "SparkMax-driver",
-            "version": "1.5.1",
+            "version": "1.5.4",
             "libName": "SparkMaxDriver",
             "headerClassifier": "headers",
             "sharedLibrary": false,
@@ -63,7 +65,8 @@
                 "linuxaarch64bionic",
                 "linuxx86-64",
                 "linuxathena",
-                "linuxraspbian"
+                "linuxraspbian",
+                "osxx86-64"
             ]
         }
     ]
