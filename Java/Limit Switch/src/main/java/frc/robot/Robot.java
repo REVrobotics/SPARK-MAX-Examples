@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
     m_stick = new Joystick(0);
 
     /**
-     * Limit switches are enabled by default when the are intialized. They can be disabled
+     * Limit switches are enabled by default when they are intialized. They can be disabled
      * by calling enableLimitSwitch(false) on a CANDigitalInput object
      * 
      * Limit switches can be reenabled by calling enableLimitSwitch(true)
