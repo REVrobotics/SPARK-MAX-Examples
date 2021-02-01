@@ -17,7 +17,7 @@ import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
- * This is a demo program showing the use of the RobotDrive class, specifically
+ * This is a demo program showing the use of the CANSparkMax class, specifically
  * it contains the code necessary to operate a robot with tank drive.
  */
 public class Robot extends TimedRobot {
