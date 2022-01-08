@@ -33,13 +33,13 @@ class Robot : public frc::TimedRobot {
      * Parameters can be set by calling the appropriate Set method on the CANSparkMax object
      * whose properties you want to change
      * 
-     * Set methods will return one of three CANError values which will let you know if the 
+     * Set methods will return one of three REVLibError values which will let you know if the 
      * parameter was successfully set:
-     *  CANError::kOk
-     *  CANError::kError
-     *  CANError::kTimeout
+     *  REVLibError::kOk
+     *  REVLibError::kError
+     *  REVLibError::kTimeout
      */
-    if(m_motor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast) != rev::CANError::kOk) {
+    if(m_motor.SetIdleMode(rev::CANSparkMax::IdleMode::kCoast) != rev::REVLibError::kOk) {
       frc::SmartDashboard::PutString("Idle Mode", "Error");
     }
 
@@ -54,7 +54,7 @@ class Robot : public frc::TimedRobot {
     }
 
     // Set ramp rate to 0
-    if(m_motor.SetOpenLoopRampRate(0) != rev::CANError::kOk) {
+    if(m_motor.SetOpenLoopRampRate(0) != rev::REVLibError::kOk) {
       frc::SmartDashboard::PutString("Ramp Rate", "Error");
     }
 

@@ -10,17 +10,16 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.CANEncoder;
-import com.revrobotics.CANPIDController;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private CANPIDController m_pidController;
-  private CANEncoder m_encoder;
+  private SparkMaxPIDController m_pidController;
+  private RelativeEncoder m_encoder;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
 
   @Override
@@ -36,7 +35,7 @@ public class Robot extends TimedRobot {
     m_motor.restoreFactoryDefaults();
 
     /**
-     * In order to use PID functionality for a controller, a CANPIDController object
+     * In order to use PID functionality for a controller, a SparkMaxPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
      */
@@ -105,12 +104,12 @@ public class Robot extends TimedRobot {
      * 
      * The second parameter is the control type can be set to one of four 
      * parameters:
-     *  com.revrobotics.ControlType.kDutyCycle
-     *  com.revrobotics.ControlType.kPosition
-     *  com.revrobotics.ControlType.kVelocity
-     *  com.revrobotics.ControlType.kVoltage
+     *  com.revrobotics.CANSparkMax.ControlType.kDutyCycle
+     *  com.revrobotics.CANSparkMax.ControlType.kPosition
+     *  com.revrobotics.CANSparkMax.ControlType.kVelocity
+     *  com.revrobotics.CANSparkMax.ControlType.kVoltage
      */
-    m_pidController.setReference(rotations, ControlType.kPosition);
+    m_pidController.setReference(rotations, CANSparkMax.ControlType.kPosition);
     
     SmartDashboard.putNumber("SetPoint", rotations);
     SmartDashboard.putNumber("ProcessVariable", m_encoder.getPosition());

@@ -27,13 +27,13 @@ class Robot : public frc::TimedRobot {
    * Encoder, the type should be set to quadrature and the counts per 
    * revolution set to 8192
    */
-  rev::CANEncoder m_alternateEncoder = m_motor.GetAlternateEncoder(kAltEncType, kCPR);
+  rev::SparkMaxAlternateEncoder m_alternateEncoder = m_motor.GetAlternateEncoder(kAltEncType, kCPR);
 
   /**
    * A PID controller can be constructed in the normal way using the 
    * GetPIDController() on the motor you want to control
    */
-  rev::CANPIDController m_pidController = m_motor.GetPIDController();
+  rev::SparkMaxPIDController m_pidController = m_motor.GetPIDController();
 
   // PID coefficients
   double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;

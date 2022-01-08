@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANEncoder;
+import com.revrobotics.RelativeEncoder;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   private Joystick m_stick;
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private CANEncoder m_encoder;
+  private RelativeEncoder m_encoder;
 
   @Override
   public void robotInit() {
@@ -48,7 +48,7 @@ public class Robot extends TimedRobot {
     m_motor.set(m_stick.getY());
 
     /**
-     * Encoder position is read from a CANEncoder object by calling the
+     * Encoder position is read from a RelativeEncoder object by calling the
      * GetPosition() method.
      * 
      * GetPosition() returns the position of the encoder in units of revolutions
@@ -56,7 +56,7 @@ public class Robot extends TimedRobot {
     SmartDashboard.putNumber("Encoder Position", m_encoder.getPosition());
 
     /**
-     * Encoder velocity is read from a CANEncoder object by calling the
+     * Encoder velocity is read from a RelativeEncoder object by calling the
      * GetVelocity() method.
      * 
      * GetVelocity() returns the velocity of the encoder in units of RPM

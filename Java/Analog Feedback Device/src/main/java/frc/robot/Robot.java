@@ -10,36 +10,35 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.CANAnalog;
-import com.revrobotics.CANPIDController;
+import com.revrobotics.SparkMaxAnalogSensor;
+import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
-import com.revrobotics.ControlType;
 
 public class Robot extends TimedRobot {
   
 
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private CANPIDController m_pidController;
+  private SparkMaxPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
 
   /**
-   * A CANAnalog object is constructed using the GetAnalog() method on an 
+   * A SparkMaxAnalogSensor object is constructed using the GetAnalog() method on an 
    * existing CANSparkMax object. 
    */
-  private CANAnalog m_analogSensor;
+  private SparkMaxAnalogSensor m_analogSensor;
 
   @Override
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-    m_analogSensor = m_motor.getAnalog(CANAnalog.AnalogMode.kAbsolute);
+    m_analogSensor = m_motor.getAnalog(SparkMaxAnalogSensor.AnalogMode.kAbsolute);
     
     m_motor.restoreFactoryDefaults();
 
     /**
-     * In order to use PID functionality for a controller, a CANPIDController object
+     * In order to use PID functionality for a controller, a SparkMaxPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
      */
@@ -48,7 +47,7 @@ public class Robot extends TimedRobot {
     /**
      * The PID Controller can be configured to use the analog sensor as its feedback
      * device with the method SetFeedbackDevice() and passing the PID Controller
-     * the CANAnalog object. 
+     * the SparkMaxAnalogSensor object. 
      */
     m_pidController.setFeedbackDevice(m_analogSensor);
 
@@ -112,12 +111,7 @@ public class Robot extends TimedRobot {
      * 
      * The second parameter is the control type can be set to one of four 
      * parameters:
-     *  com.revrobotics.ControlType.kDutyCycle
-     *  com.revrobotics.ControlType.kPosition
-     *  com.revrobotics.ControlType.kVelocity
-     *  com.revrobotics.ControlType.kVoltage
      */
-    m_pidController.setReference(rotations, ControlType.kPosition);
     
     SmartDashboard.putNumber("SetPoint", rotations);
     SmartDashboard.putNumber("ProcessVariable", m_analogSensor.getPosition());

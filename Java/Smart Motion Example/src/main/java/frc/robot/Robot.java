@@ -10,10 +10,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.CANEncoder;
-import com.revrobotics.CANPIDController;
+import com.revrobotics.RelativeEncoder;
+import com.revrobotics.SparkMaxPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.ControlType;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 
 /**
@@ -53,8 +52,8 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class Robot extends TimedRobot {
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private CANPIDController m_pidController;
-  private CANEncoder m_encoder;
+  private SparkMaxPIDController m_pidController;
+  private RelativeEncoder m_encoder;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM, maxVel, minVel, maxAcc, allowedErr;
 
   @Override
@@ -96,7 +95,7 @@ public class Robot extends TimedRobot {
     m_pidController.setOutputRange(kMinOutput, kMaxOutput);
 
     /**
-     * Smart Motion coefficients are set on a CANPIDController object
+     * Smart Motion coefficients are set on a SparkMaxPIDController object
      * 
      * - setSmartMotionMaxVelocity() will limit the velocity in RPM of
      * the pid controller in Smart Motion mode
@@ -168,7 +167,7 @@ public class Robot extends TimedRobot {
     boolean mode = SmartDashboard.getBoolean("Mode", false);
     if(mode) {
       setPoint = SmartDashboard.getNumber("Set Velocity", 0);
-      m_pidController.setReference(setPoint, ControlType.kVelocity);
+      m_pidController.setReference(setPoint, CANSparkMax.ControlType.kVelocity);
       processVariable = m_encoder.getVelocity();
     } else {
       setPoint = SmartDashboard.getNumber("Set Position", 0);
@@ -177,7 +176,7 @@ public class Robot extends TimedRobot {
        * setReference method on an existing pid object and setting
        * the control type to kSmartMotion
        */
-      m_pidController.setReference(setPoint, ControlType.kSmartMotion);
+      m_pidController.setReference(setPoint, CANSparkMax.ControlType.kSmartMotion);
       processVariable = m_encoder.getPosition();
     }
     

@@ -8,7 +8,7 @@
 #include <frc/Joystick.h>
 #include <frc/TimedRobot.h>
 #include <frc/drive/DifferentialDrive.h>
-#include "rev/SparkMax.h"
+#include <frc/motorcontrol/PWMSparkMax.h>
 
 class Robot : public frc::TimedRobot {
   /**
@@ -18,9 +18,8 @@ class Robot : public frc::TimedRobot {
    * Change the PWM channels below to match your setup
    */
   static const int leftPwmChannel = 0, rightPwmChannel = 1;
-  rev::SparkMax m_leftMotor{leftPwmChannel};
-  rev::SparkMax m_rightMotor{rightPwmChannel};
-
+  frc::PWMSparkMax m_leftMotor{leftPwmChannel};
+  frc::PWMSparkMax m_rightMotor{rightPwmChannel};
   frc::DifferentialDrive m_robotDrive{m_leftMotor, m_rightMotor};
   frc::Joystick m_stick{0};
 

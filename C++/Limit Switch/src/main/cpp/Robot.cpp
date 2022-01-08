@@ -16,16 +16,16 @@ class Robot : public frc::TimedRobot {
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
 
   /**
-   * A CANDigitalInput object is constructed using the GetForwardLimitSwitch() or
+   * A SparkMaxLimitSwitch object is constructed using the GetForwardLimitSwitch() or
    * GetReverseLimitSwitch() method on an existing CANSparkMax object, depending
    * on which direction you would like to limit
    * 
    * Limit switches can be configured to one of two polarities:
-   *  rev::CANDigitalInput::LimitSwitchPolarity::kNormallyOpen
-   *  rev::CANDigitalInput::LimitSwitchPolarity::kNormallyClosed
+   *  rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyOpen
+   *  rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed
    */
-  rev::CANDigitalInput m_forwardLimit = m_motor.GetForwardLimitSwitch(rev::CANDigitalInput::LimitSwitchPolarity::kNormallyClosed);
-  rev::CANDigitalInput m_reverseLimit = m_motor.GetReverseLimitSwitch(rev::CANDigitalInput::LimitSwitchPolarity::kNormallyClosed);
+  rev::SparkMaxLimitSwitch m_forwardLimit = m_motor.GetForwardLimitSwitch(rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed);
+  rev::SparkMaxLimitSwitch m_reverseLimit = m_motor.GetReverseLimitSwitch(rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed);
 
   frc::Joystick m_stick{0};
 
@@ -33,7 +33,7 @@ class Robot : public frc::TimedRobot {
   void RobotInit() {
     /**
      * Limit switches are enabled by default when the are intialized. They can be disabled
-     * by calling enableLimitSwitch(false) on a CANDigitalInput object
+     * by calling enableLimitSwitch(false) on a SparkMaxLimitSwitch object
      * 
      * Limit switches can be reenabled by calling enableLimitSwitch(true)
      * 
@@ -52,7 +52,7 @@ class Robot : public frc::TimedRobot {
     m_reverseLimit.EnableLimitSwitch(frc::SmartDashboard::GetBoolean("Reverse Limit Enabled", false));
 
     /**
-     * The Get() method can be used on a CANDigitalInput object to read the state of the switch.
+     * The Get() method can be used on a SparkMaxLimitSwitch object to read the state of the switch.
      * 
      * In this example, the polarity of the switches are set to normally closed. In this case,
      * Get() will return true if the switch is pressed. It will also return true if you do not 

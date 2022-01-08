@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.CANError;
+import com.revrobotics.REVLibError;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.CANSparkMax.IdleMode;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -44,13 +44,13 @@ public class Robot extends TimedRobot {
      * Parameters can be set by calling the appropriate Set method on the CANSparkMax object
      * whose properties you want to change
      * 
-     * Set methods will return one of three CANError values which will let you know if the 
+     * Set methods will return one of three REVLibError values which will let you know if the 
      * parameter was successfully set:
-     *  CANError.kOk
-     *  CANError.kError
-     *  CANError.kTimeout
+     *  REVLibError.kOk
+     *  REVLibError.kError
+     *  REVLibError.kTimeout
      */
-    if(m_motor.setIdleMode(IdleMode.kCoast) != CANError.kOk){
+    if(m_motor.setIdleMode(IdleMode.kCoast) != REVLibError.kOk){
       SmartDashboard.putString("Idle Mode", "Error");
     }
 
@@ -65,7 +65,7 @@ public class Robot extends TimedRobot {
     }
 
     // Set ramp rate to 0
-    if(m_motor.setOpenLoopRampRate(0) != CANError.kOk) {
+    if(m_motor.setOpenLoopRampRate(0) != REVLibError.kOk) {
       SmartDashboard.putString("Ramp Rate", "Error");
     }
 
