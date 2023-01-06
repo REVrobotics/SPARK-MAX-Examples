@@ -21,11 +21,11 @@ class Robot : public frc::TimedRobot {
    * on which direction you would like to limit
    * 
    * Limit switches can be configured to one of two polarities:
-   *  rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyOpen
-   *  rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed
+   *  rev::SparkMaxLimitSwitch::Type::kNormallyOpen
+   *  rev::SparkMaxLimitSwitch::Type::kNormallyClosed
    */
-  rev::SparkMaxLimitSwitch m_forwardLimit = m_motor.GetForwardLimitSwitch(rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed);
-  rev::SparkMaxLimitSwitch m_reverseLimit = m_motor.GetReverseLimitSwitch(rev::SparkMaxLimitSwitch::LimitSwitchPolarity::kNormallyClosed);
+  rev::SparkMaxLimitSwitch m_forwardLimit = m_motor.GetForwardLimitSwitch(rev::SparkMaxLimitSwitch::Type::kNormallyClosed);
+  rev::SparkMaxLimitSwitch m_reverseLimit = m_motor.GetReverseLimitSwitch(rev::SparkMaxLimitSwitch::Type::kNormallyClosed);
 
   frc::Joystick m_stick{0};
 

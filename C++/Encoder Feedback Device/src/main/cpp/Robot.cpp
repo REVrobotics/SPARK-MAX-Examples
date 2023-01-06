@@ -24,7 +24,7 @@ class Robot : public frc::TimedRobot {
    * or a sensor type and counts per revolution can be passed in to specify
    * a different kind of sensor. Here, it's a quadrature encoder with 4096 CPR.
    */
-  rev::SparkMaxRelativeEncoder m_encoder = m_motor.GetEncoder(rev::CANEncoder::EncoderType::kQuadrature, 4096);
+  rev::SparkMaxRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkMaxRelativeEncoder::Type::kQuadrature, 4096);
 
   /**
    * In order to use PID functionality for a controller, a CANPIDController object
@@ -104,12 +104,12 @@ class Robot : public frc::TimedRobot {
      * 
      * The second parameter is the control type can be set to one of four 
      * parameters:
-     *  rev::ControlType::kDutyCycle
-     *  rev::ControlType::kPosition
-     *  rev::ControlType::kVelocity
-     *  rev::ControlType::kVoltage
+     *  rev::CANSparkMax::ControlType::kDutyCycle
+     *  rev::CANSparkMax::ControlType::kPosition
+     *  rev::CANSparkMax::ControlType::kVelocity
+     *  rev::CANSparkMax::ControlType::kVoltage
      */
-    m_pidController.SetReference(rotations, rev::ControlType::kPosition);
+    m_pidController.SetReference(rotations, rev::CANSparkMax::ControlType::kPosition);
     
     frc::SmartDashboard::PutNumber("SetPoint", rotations);
     frc::SmartDashboard::PutNumber("ProcessVariable", m_encoder.GetPosition());

@@ -102,12 +102,12 @@ class Robot : public frc::TimedRobot {
      * 
      * The second parameter is the control type can be set to one of four 
      * parameters:
-     *  rev::ControlType::kDutyCycle
-     *  rev::ControlType::kPosition
-     *  rev::ControlType::kVelocity
-     *  rev::ControlType::kVoltage
+     *  rev::CANSparkMax::ControlType::kDutyCycle
+     *  rev::CANSparkMax::ControlType::kPosition
+     *  rev::CANSparkMax::ControlType::kVelocity
+     *  rev::CANSparkMax::ControlType::kVoltage
      */
-    m_pidController.SetReference(rotations, rev::ControlType::kPosition);
+    m_pidController.SetReference(rotations, rev::CANSparkMax::ControlType::kPosition);
     
     frc::SmartDashboard::PutNumber("SetPoint", rotations);
     frc::SmartDashboard::PutNumber("ProcessVariable", m_analogSensor.GetPosition());

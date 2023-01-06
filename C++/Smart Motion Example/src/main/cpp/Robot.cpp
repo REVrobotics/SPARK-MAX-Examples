@@ -147,7 +147,7 @@ class Robot : public frc::TimedRobot {
     bool mode = frc::SmartDashboard::GetBoolean("Mode", false);
     if(mode) {
       SetPoint = frc::SmartDashboard::GetNumber("Set Velocity", 0);
-      m_pidController.SetReference(SetPoint, rev::ControlType::kVelocity);
+      m_pidController.SetReference(SetPoint, rev::CANSparkMax::ControlType::kVelocity);
       ProcessVariable = m_encoder.GetVelocity();
     } else {
       SetPoint = frc::SmartDashboard::GetNumber("Set Position", 0);
@@ -156,7 +156,7 @@ class Robot : public frc::TimedRobot {
        * SetReference method on an existing pid object and setting
        * the control type to kSmartMotion
        */
-      m_pidController.SetReference(SetPoint, rev::ControlType::kSmartMotion);
+      m_pidController.SetReference(SetPoint, rev::CANSparkMax::ControlType::kSmartMotion);
       ProcessVariable = m_encoder.GetPosition();
     }
     
