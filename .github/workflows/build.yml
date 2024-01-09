@@ -1,0 +1,73 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - 'master'
+    tags-ignore:
+      - '*'
+  pull_request:
+    branches:
+      - '*'
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    timeout-minutes: 15
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [Java, C++]
+        example: [
+          Alternate Encoder,
+          Analog Feedback Device,
+          Arcade Drive With CAN,
+          Arcade Drive With PWM,
+          Bus Measurements,
+          Encoder Feedback Device,
+          Get and Set Parameters,
+          Limit Switch,
+          Motor Follower,
+          Position Closed Loop Control,
+          Read Encoder Values,
+          Smart Motion Example,
+          Soft Limits,
+          Tank Drive With CAN,
+          Velocity Closed Loop Control,
+        ]
+        exclude:
+          - example: Arcade Drive With CAN
+            language: Java
+          - example: Arcade Drive with PWM
+            language: Java
+          - example: Motor Follower
+            language: C++
+          - example: Tank Drive With CAN
+            language: C++
+    name: Build ${{ matrix.example }} - ${{ matrix.language }}
+    runs-on: ubuntu-latest
+    container: wpilib/roborio-cross-ubuntu:2024-22.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Cache
+        uses: actions/cache@v3
+        with:
+          path: |
+            ${{ matrix.language }}/${{ matrix.example }}/.gradle
+            ${{ matrix.language }}/${{ matrix.example }}/bin
+            ${{ matrix.language }}/${{ matrix.example }}/build
+          key: ${{ matrix.example }}-${{ matrix.language }}-build-${{ github.sha }}
+          restore-keys: |
+            ${{ matrix.example }}-${{ matrix.language }}-build-
+
+      - name: Build
+        run: |
+          cd "${{ matrix.language }}"
+          cd "${{ matrix.example }}"
+          chmod +x gradlew
+          ./gradlew build
