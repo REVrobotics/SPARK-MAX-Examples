@@ -23,7 +23,7 @@ class Robot : public frc::TimedRobot {
   rev::SparkPIDController m_pidController = m_motor.GetPIDController();
 
   // Encoder object created to display velocity values
-  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
   frc::Joystick m_stick{0};
 

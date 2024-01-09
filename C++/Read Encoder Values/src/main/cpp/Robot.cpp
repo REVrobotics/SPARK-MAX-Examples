@@ -24,7 +24,7 @@ class Robot : public frc::TimedRobot {
    * In order to read encoder values an encoder object is created using the 
    * GetEncoder() method from an existing CANSparkMax object
    */
-  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
   frc::Joystick m_stick{0};
 

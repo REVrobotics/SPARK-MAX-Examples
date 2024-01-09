@@ -23,7 +23,7 @@ class Robot : public frc::TimedRobot {
   rev::SparkPIDController m_pidController = m_motor.GetPIDController();
 
   // Encoder object created to display position values
-  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
   // PID coefficients
   double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
