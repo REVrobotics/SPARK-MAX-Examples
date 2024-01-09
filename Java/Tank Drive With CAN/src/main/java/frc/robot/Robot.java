@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   private DifferentialDrive m_myRobot;
@@ -32,8 +32,8 @@ public class Robot extends TimedRobot {
    * first parameter
    * 
    * The motor type is passed as the second parameter. Motor type can either be:
-   *  com.revrobotics.CANSparkMaxLowLevel.MotorType.kBrushless
-   *  com.revrobotics.CANSparkMaxLowLevel.MotorType.kBrushed
+   *  com.revrobotics.CANSparkLowLevel.MotorType.kBrushless
+   *  com.revrobotics.CANSparkLowLevel.MotorType.kBrushed
    * 
    * The example below initializes four brushless motors with CAN IDs 1 and 2. Change
    * these parameters to match your setup

@@ -11,9 +11,9 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.RelativeEncoder;
-import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 /**
  * Before Running:
@@ -52,7 +52,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class Robot extends TimedRobot {
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private SparkMaxPIDController m_pidController;
+  private SparkPIDController m_pidController;
   private RelativeEncoder m_encoder;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput, maxRPM, maxVel, minVel, maxAcc, allowedErr;
 
@@ -95,7 +95,7 @@ public class Robot extends TimedRobot {
     m_pidController.setOutputRange(kMinOutput, kMaxOutput);
 
     /**
-     * Smart Motion coefficients are set on a SparkMaxPIDController object
+     * Smart Motion coefficients are set on a SparkPIDController object
      * 
      * - setSmartMotionMaxVelocity() will limit the velocity in RPM of
      * the pid controller in Smart Motion mode

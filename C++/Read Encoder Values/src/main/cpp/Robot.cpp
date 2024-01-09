@@ -24,7 +24,7 @@ class Robot : public frc::TimedRobot {
    * In order to read encoder values an encoder object is created using the 
    * GetEncoder() method from an existing CANSparkMax object
    */
-  rev::SparkMaxRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder();
 
   frc::Joystick m_stick{0};
 
@@ -36,7 +36,7 @@ class Robot : public frc::TimedRobot {
     m_motor.Set(m_stick.GetY());
 
     /**
-     * Encoder position is read from a SparkMaxRelativeEncoder object by calling the
+     * Encoder position is read from a SparkRelativeEncoder object by calling the
      * GetPosition() method.
      * 
      * GetPosition() returns the position of the encoder in units of revolutions
@@ -44,7 +44,7 @@ class Robot : public frc::TimedRobot {
     frc::SmartDashboard::PutNumber("Encoder Position", m_encoder.GetPosition());
 
     /**
-     * Encoder velocity is read from a SparkMaxRelativeEncoder object by calling the
+     * Encoder velocity is read from a SparkRelativeEncoder object by calling the
      * GetVelocity() method.
      * 
      * GetVelocity() returns the velocity of the encoder in units of RPM

@@ -11,7 +11,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 /**
  * This sample program shows how to control a motor using a joystick. In the
@@ -39,8 +39,8 @@ public class Robot extends TimedRobot {
      * first parameter
      * 
      * The motor type is passed as the second parameter. Motor type can either be:
-     *  com.revrobotics.CANSparkMaxLowLevel.MotorType.kBrushless
-     *  com.revrobotics.CANSparkMaxLowLevel.MotorType.kBrushed
+     *  com.revrobotics.CANSparkLowLevel.MotorType.kBrushless
+     *  com.revrobotics.CANSparkLowLevel.MotorType.kBrushed
      * 
      * The example below initializes two brushless motors with CAN IDs 1 and 2. Change
      * these parameters to match your setup

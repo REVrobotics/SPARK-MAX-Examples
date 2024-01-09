@@ -19,18 +19,18 @@ class Robot : public frc::TimedRobot {
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
 
   /**
-   * A SparkMaxAnalogSensor object is constructed using the GetAnalog() method on an 
+   * A SparkAnalogSensor object is constructed using the GetAnalog() method on an 
    * existing CANSparkMax object. 
    */
-  rev::SparkMaxAnalogSensor m_analogSensor = m_motor.GetAnalog();
+  rev::SparkAnalogSensor m_analogSensor = m_motor.GetAnalog();
 
   /**
-   * In order to use PID functionality for a controller, a SparkMaxPIDController object
+   * In order to use PID functionality for a controller, a SparkPIDController object
    * is constructed by calling the GetPIDController() method on an existing
    * CANSparkMax object. 
    * 
    */
-  rev::SparkMaxPIDController m_pidController = m_motor.GetPIDController();
+  rev::SparkPIDController m_pidController = m_motor.GetPIDController();
 
   // PID coefficients
   double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
@@ -47,7 +47,7 @@ class Robot : public frc::TimedRobot {
     /**
      * The PID Controller can be configured to use the analog sensor as its feedback
      * device with the method SetFeedbackDevice() and passing the PID Controller
-     * the SparkMaxAnalogSensor object. 
+     * the SparkAnalogSensor object. 
      */
    
     m_pidController.SetFeedbackDevice(m_analogSensor);

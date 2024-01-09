@@ -12,9 +12,9 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.RelativeEncoder;
 import com.revrobotics.SparkMaxAlternateEncoder;
-import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   /**
@@ -26,7 +26,7 @@ public class Robot extends TimedRobot {
   private static final int kCPR = 8192;
 
   private CANSparkMax m_motor;
-  private SparkMaxPIDController m_pidController;
+  private SparkPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
 
   /**
@@ -46,7 +46,7 @@ public class Robot extends TimedRobot {
     m_alternateEncoder = m_motor.getAlternateEncoder(kAltEncType, kCPR);
     
     /**
-     * In order to use PID functionality for a controller, a SparkMaxPIDController object
+     * In order to use PID functionality for a controller, a SparkPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
      */

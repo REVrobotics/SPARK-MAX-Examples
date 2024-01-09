@@ -10,35 +10,35 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.SparkMaxAnalogSensor;
-import com.revrobotics.SparkMaxPIDController;
+import com.revrobotics.SparkAnalogSensor;
+import com.revrobotics.SparkPIDController;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   
 
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private SparkMaxPIDController m_pidController;
+  private SparkPIDController m_pidController;
   public double kP, kI, kD, kIz, kFF, kMaxOutput, kMinOutput;
 
   /**
-   * A SparkMaxAnalogSensor object is constructed using the GetAnalog() method on an 
+   * A SparkAnalogSensor object is constructed using the GetAnalog() method on an 
    * existing CANSparkMax object. 
    */
-  private SparkMaxAnalogSensor m_analogSensor;
+  private SparkAnalogSensor m_analogSensor;
 
   @Override
   public void robotInit() {
     // initialize SPARK MAX with CAN ID
     m_motor = new CANSparkMax(deviceID, MotorType.kBrushless);
-    m_analogSensor = m_motor.getAnalog(SparkMaxAnalogSensor.Mode.kAbsolute);
+    m_analogSensor = m_motor.getAnalog(SparkAnalogSensor.Mode.kAbsolute);
     
     m_motor.restoreFactoryDefaults();
 
     /**
-     * In order to use PID functionality for a controller, a SparkMaxPIDController object
+     * In order to use PID functionality for a controller, a SparkPIDController object
      * is constructed by calling the getPIDController() method on an existing
      * CANSparkMax object
      */
@@ -47,7 +47,7 @@ public class Robot extends TimedRobot {
     /**
      * The PID Controller can be configured to use the analog sensor as its feedback
      * device with the method SetFeedbackDevice() and passing the PID Controller
-     * the SparkMaxAnalogSensor object. 
+     * the SparkAnalogSensor object. 
      */
     m_pidController.setFeedbackDevice(m_analogSensor);
 
