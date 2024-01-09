@@ -38,25 +38,23 @@ jobs:
           Tank Drive With CAN,
           Velocity Closed Loop Control,
         ]
-        include:
+        exclude:
           - example: Arcade Drive With CAN
-            skip-java: true
+            language: Java
           - example: Arcade Drive with PWM
-            skip-java: true
+            language: Java
           - example: Motor Follower
-            skip-cpp: true
+            language: C++
           - example: Tank Drive With CAN
-            skip-cpp: true
+            language: C++
     name: Build ${{ matrix.example }} - ${{ matrix.language }}
     runs-on: ubuntu-latest
     container: wpilib/roborio-cross-ubuntu:2024-22.04
     steps:
       - name: Checkout
-        if: (matrix.language == 'Java' && !matrix.skip-java) || (matrix.language == 'C++' && !matrix.skip-cpp)
         uses: actions/checkout@v3
 
       - name: Cache
-        if: (matrix.language == 'Java' && !matrix.skip-java) || (matrix.language == 'C++' && !matrix.skip-cpp)
         uses: actions/cache@v3
         with:
           path: |
@@ -68,7 +66,6 @@ jobs:
             ${{ matrix.example }}-${{ matrix.language }}-build-
 
       - name: Build
-        if: (matrix.language == 'Java' && !matrix.skip-java) || (matrix.language == 'C++' && !matrix.skip-cpp)
         run: |
           cd "${{ matrix.language }}"
           cd "${{ matrix.example }}"
