@@ -22,7 +22,7 @@ class Robot : public frc::TimedRobot {
    * A SparkAnalogSensor object is constructed using the GetAnalog() method on an 
    * existing CANSparkMax object. 
    */
-  rev::SparkAnalogSensor m_analogSensor = m_motor.GetAnalog();
+  rev::SparkAnalogSensor m_analogSensor = m_motor.GetAnalog(rev::SparkAnalogSensor::Mode::kAbsolute);
 
   /**
    * In order to use PID functionality for a controller, a SparkPIDController object
