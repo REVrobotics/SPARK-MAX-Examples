@@ -48,8 +48,8 @@
 class Robot : public frc::TimedRobot {
   static const int deviceID = 9;
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
-  rev::SparkMaxPIDController m_pidController = m_motor.GetPIDController();
-  rev::SparkMaxRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkPIDController m_pidController = m_motor.GetPIDController();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
   // default PID coefficients
   double kP = 5e-5, kI = 1e-6, kD = 0, kIz = 0, kFF = 0.000156, kMaxOutput = 1, kMinOutput = -1;
@@ -80,7 +80,7 @@ class Robot : public frc::TimedRobot {
     m_pidController.SetOutputRange(kMinOutput, kMaxOutput);
 
     /**
-     * Smart Motion coefficients are set on a SparkMaxPIDController object
+     * Smart Motion coefficients are set on a SparkPIDController object
      * 
      * - SetSmartMotionMaxVelocity() will limit the velocity in RPM of
      * the pid controller in Smart Motion mode

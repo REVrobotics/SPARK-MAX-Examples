@@ -1,60 +1,27 @@
 # SPARK-MAX-Examples
+
 ## Table of Contents
-* [Installing libraries Java/C++](#installjc)
-* [Building and Running Examples in Visual Studio](#buildrunvs)
-* [Installing libraries LabVIEW](#installlv)
-* [Running Examples in LabVIEW](#runlv)
 
+* [Installing REVLib](#installing-revlib)
+* [Running Examples in Visual Studio Code](#running-examples-in-visual-studio-code)
+* [Running Examples in LabVIEW](#running-examples-in-labview)
 
-<a name="installjc"></a>
-## Installing libraries for Java/C++
-Download the SPARK-MAX-roboRIO-SDK from RevRobotics.
-* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.5.1.zip">Java API</a>
-* <a href="http://www.revrobotics.com/content/sw/max/sdk/SPARK-MAX-SDK-v1.5.1.zip">C++ API</a>
+## Installing REVLib
 
-Extract the zipped archive to a location where you can find it. Within the extracted folder, there will be two folders title "maven" and "vendordeps".
+For information about installing and updating REVLib for use with the SPARK MAX Motor Controller, see our [documentation](https://docs.revrobotics.com/brushless/spark-max/revlib/).
 
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Extracted%20Folder.PNG "SPARK-MAX-roboRIO-SDK")
+## Running Examples in Visual Studio Code
 
-Copy and paste these folders into the location <b>C:\Users\Public\wpilib\2020</b>. Replace the files in the destination if you are prompted.
+After cloning this GitHub repository, Java and C++ examples can be opened in Visual Studio Code by going to **File > Open Folder...** and selecting the parent folder of the example you want to run.
 
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Copy%20Location.PNG "Copy Location")
+By default, the Team Number is set to 0 in the `.wpilib/wpilib_preferences.json file`. Make sure to change this to the Team Number configured on your roboRIO by either editing this file directly or by pressing **Ctrl + Shift + P** and selecting **WPILib: Set Team Number**.
 
-### Installing in Visual Studio
-Once the archive containing the SPARK-MAX-roboRIO-SDK has been extracted to the correct location, it can be installed in Visual Studio.
+Run the program by right clicking `build.gradle` in file explorer of VS Code and selecting **Deploy Robot Code**.
 
-Begin by creating a new project in the language of your choice or by opening an existing project. Press <b>ctrl + shift + p</b> to bring up the command pallette and select <b>WPILib: Manage Vendor Libraries</b>
-
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Manage%20Vendor%20Libraries.png "Manage Vendor Libraries")
-
-Then select <b>Install new libraries (offline)</b>, check the box next to <b>RevRobotics</b> and select <b>OK</b>.
-
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Select%20Library.png "Select Library")
-
-After a few moments SPARK MAX libraries will be available for you to use in your current project. This process will need to be repeated for each subsequent project that requires SPARK MAX libraries.
-
-For Java all functions can be imported using `import com.revrobotics.*;`. Similarly, for C++ use `#include "rev/CANSparkMax.h`.
-
-<a name="#buildrunvs"></a>
-## Building and Running Examples in Visual Studio
-After cloning this GitHub repository, Java and C++ examples can be opened in Visual Studio by going to <b>File->Open Folder...</b> and selecting the parent folder of the example you want to run.
-
-By default, the Team Number is set to 0 in the .wpilib/wpilib_preferences.json file. Make sure to change this to the Team Number configured on your roboRIO by either editing this file directly or by pressing <b>ctrl + shift + p</b> and selecting <b>WPILib: Set Team Number.</b>
-
-<a name = "installlv"></a>
-## Installing libraries for LabVIEW
-Download the SPARK MAX LabVIEW API from RevRobotics <a href="http://www.revrobotics.com/content/sw/max/labview/rev-spark-max_1.5.2-0_windows_all.nipkg">here</a>.
-
-Simply run the installer and follow the instructions on screen.
-
-<a name = "runlv"></a>
 ## Running Examples in LabVIEW
-Open LabVIEW and select <b>File->Open Project...</b>. Open the <b>.lvproj</b> file in the top directory of the example you wish to run.
 
-By default the IP address of the roboRIO is set to 172.22.11.2. This IP address will work if you are connecting to the roboRIO over USB, but if you are connected over ethernet or WIFI you will need to right click <b>Target</b>, select <b>Properties</b>, and configure the IP set for your roboRIO.
+Open LabVIEW and select **File > Open Project...**. Open the `.lvproj` file in the top directory of the example you wish to run.
 
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Set%20IP.PNG "Set IP")
+By default, the IP address of the roboRIO is set to `172.22.11.2`. This IP address will work if you are connecting to the roboRIO over USB, but if you are connected over ethernet or WiFi you will need to right click **Target**, select **Properties**, and configure the IP set for your roboRIO, e.g. `roboRIO-<TEAM>-FRC.local`.
 
-Run the program by opening <b>Robot Main.vi</b> a pressing the white arrow at the top of the window.
-
-![alt text](https://github.com/REVrobotics/SPARK-MAX-Examples/blob/master/images/Run.PNG "Run")
+Run the program by opening `Robot Main.vi` and pressing the white arrow at the top of the window.

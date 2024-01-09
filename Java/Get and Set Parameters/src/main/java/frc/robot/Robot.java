@@ -13,8 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.revrobotics.REVLibError;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMax.IdleMode;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 /**
  * This is a demo program showing the use of the CANSparkMax class, specifically
@@ -50,7 +49,7 @@ public class Robot extends TimedRobot {
      *  REVLibError.kError
      *  REVLibError.kTimeout
      */
-    if(m_motor.setIdleMode(IdleMode.kCoast) != REVLibError.kOk){
+    if(m_motor.setIdleMode(CANSparkMax.IdleMode.kCoast) != REVLibError.kOk){
       SmartDashboard.putString("Idle Mode", "Error");
     }
 
@@ -58,7 +57,7 @@ public class Robot extends TimedRobot {
      * Similarly, parameters will have a Get method which allows you to retrieve their values
      * from the controller
      */
-    if(m_motor.getIdleMode() == IdleMode.kCoast) {
+    if(m_motor.getIdleMode() == CANSparkMax.IdleMode.kCoast) {
       SmartDashboard.putString("Idle Mode", "Coast");
     } else {
       SmartDashboard.putString("Idle Mode", "Brake");

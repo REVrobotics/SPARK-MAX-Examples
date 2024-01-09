@@ -14,4 +14,4 @@ PID Coefficients can be adjusted on SmartDashboard as well as the set rotations 
 
 The setpoint and process variable will be displayed on SmartDashboard.
 
-[More info about Alternate Encoder Mode](https://docs.revrobotics.com/sparkmax/operating-modes-1/alternate-encoder-mode)
+[More info about Alternate Encoder Mode](https://docs.revrobotics.com/brushless/spark-max/encoders/alternate-encoder)

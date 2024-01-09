@@ -33,7 +33,7 @@ class Robot : public frc::TimedRobot {
    * A PID controller can be constructed in the normal way using the 
    * GetPIDController() on the motor you want to control
    */
-  rev::SparkMaxPIDController m_pidController = m_motor.GetPIDController();
+  rev::SparkPIDController m_pidController = m_motor.GetPIDController();
 
   // PID coefficients
   double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;

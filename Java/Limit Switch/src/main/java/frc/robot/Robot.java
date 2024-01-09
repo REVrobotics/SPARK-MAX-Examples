@@ -11,16 +11,16 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import com.revrobotics.SparkMaxLimitSwitch;
+import com.revrobotics.SparkLimitSwitch;
 import com.revrobotics.CANSparkMax;
-import com.revrobotics.CANSparkMaxLowLevel.MotorType;
+import com.revrobotics.CANSparkLowLevel.MotorType;
 
 public class Robot extends TimedRobot {
   private Joystick m_stick;
   private static final int deviceID = 1;
   private CANSparkMax m_motor;
-  private SparkMaxLimitSwitch m_forwardLimit;
-  private SparkMaxLimitSwitch m_reverseLimit;
+  private SparkLimitSwitch m_forwardLimit;
+  private SparkLimitSwitch m_reverseLimit;
 
   public String kEnable;
   public String kDisable;
@@ -38,22 +38,22 @@ public class Robot extends TimedRobot {
     m_motor.restoreFactoryDefaults();
 
     /**
-     * A SparkMaxLimitSwitch object is constructed using the getForwardLimitSwitch() or
+     * A SparkLimitSwitch object is constructed using the getForwardLimitSwitch() or
      * getReverseLimitSwitch() method on an existing CANSparkMax object, depending
      * on which direction you would like to limit
      * 
      * Limit switches can be configured to one of two polarities:
-     *  com.revrobotics.SparkMaxLimitSwitch.SparkMaxLimitSwitch.Type.kNormallyOpen
-     *  com.revrobotics.SparkMaxLimitSwitch.SparkMaxLimitSwitch.Type.kNormallyClosed
+     *  com.revrobotics.SparkLimitSwitch.SparkLimitSwitch.Type.kNormallyOpen
+     *  com.revrobotics.SparkLimitSwitch.SparkLimitSwitch.Type.kNormallyClosed
      */
-    m_forwardLimit = m_motor.getForwardLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
-    m_reverseLimit = m_motor.getReverseLimitSwitch(SparkMaxLimitSwitch.Type.kNormallyClosed);
+    m_forwardLimit = m_motor.getForwardLimitSwitch(SparkLimitSwitch.Type.kNormallyClosed);
+    m_reverseLimit = m_motor.getReverseLimitSwitch(SparkLimitSwitch.Type.kNormallyClosed);
 
     m_stick = new Joystick(0);
 
     /**
      * Limit switches are enabled by default when they are intialized. They can be disabled
-     * by calling enableLimitSwitch(false) on a SparkMaxLimitSwitch object
+     * by calling enableLimitSwitch(false) on a SparkLimitSwitch object
      * 
      * Limit switches can be reenabled by calling enableLimitSwitch(true)
      * 
@@ -74,7 +74,7 @@ public class Robot extends TimedRobot {
     m_reverseLimit.enableLimitSwitch(SmartDashboard.getBoolean("Reverse Limit Enabled", false));
 
     /**
-     * The isPressed() method can be used on a SparkMaxLimitSwitch object to read the state of the switch.
+     * The isPressed() method can be used on a SparkLimitSwitch object to read the state of the switch.
      * 
      * In this example, the polarity of the switches are set to normally closed. In this case,
      * isPressed() will return true if the switch is pressed. It will also return true if you do not 

@@ -16,14 +16,14 @@ class Robot : public frc::TimedRobot {
   rev::CANSparkMax m_motor{deviceID, rev::CANSparkMax::MotorType::kBrushless};
 
   /**
-   * In order to use PID functionality for a controller, a SparkMaxPIDController object
+   * In order to use PID functionality for a controller, a SparkPIDController object
    * is constructed by calling the GetPIDController() method on an existing
    * CANSparkMax object
    */
-  rev::SparkMaxPIDController m_pidController = m_motor.GetPIDController();
+  rev::SparkPIDController m_pidController = m_motor.GetPIDController();
 
   // Encoder object created to display position values
-  rev::SparkMaxRelativeEncoder m_encoder = m_motor.GetEncoder();
+  rev::SparkRelativeEncoder m_encoder = m_motor.GetEncoder(rev::SparkRelativeEncoder::Type::kHallSensor);
 
   // PID coefficients
   double kP = 0.1, kI = 1e-4, kD = 1, kIz = 0, kFF = 0, kMaxOutput = 1, kMinOutput = -1;
