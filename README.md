@@ -8,7 +8,7 @@
 
 ## Installing REVLib
 
-Find the latest version of REVLib and instructions on how to install [here](https://docs.revrobotics.com/brushless/spark-max/revlib).
+For information about installing and updating REVLib for use with the SPARK MAX Motor Controller, see our [documentation](https://docs.revrobotics.com/brushless/spark-max/revlib/).
 
 ## Running Examples in Visual Studio Code
 
