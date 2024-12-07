@@ -1,5 +1,5 @@
 > [!WARNING]
-> Starting 2025, this repository has been deprecated. SPARK MAX Examples now exist in [REVLib-Examples](https://github.com/REVrobotics/REVLib-Examples).
+> Starting 2025, this repository has been deprecated. SPARK MAX examples now exist in [REVLib-Examples](https://github.com/REVrobotics/REVLib-Examples).
 
 # SPARK-MAX-Examples
 
